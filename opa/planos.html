@@ -18,31 +18,41 @@
 
         <div class="main_planos">
             <div class="mainplanos">
-                <h1>Faça seu plano <br><strong class="marcacao">personalizado.</strong></h1>
+                <h1 id="faca_plano">Faça seu plano <br><strong class="marcacao">personalizado.</strong></h1>
 
                 <div class="botao-toggle" id="botaoToggle">
-                    <div class="indicador-toggle"></div> 
+                    <div class="indicador-toggle"></div>
                     <div class="opcao-toggle ativa" id="mensal" onclick="alternarOpcao('mensal')">Mensal</div>
                     <div class="opcao-toggle" id="anual" onclick="alternarOpcao('anual')">Anual</div>
-                  </div>
+                </div>
 
-            <p class="txt_mainplanos">Insira a quantidade de funcionários da sua empresa.</p>
+                <p class="txt_mainplanos">Insira a quantidade de funcionários da sua empresa.</p>
 
-            <input type="number" placeholder="Insira a quantidade de funcionários aqui..." id="formulario_mainplanos"></input>
-                  
-            <button id="consultar">Consultar</button>
+                <input type="number" placeholder="Insira a quantidade de funcionários aqui..."
+                    id="formulario_mainplanos"></input>
 
-            <h2 id="valormensal">Valor a pagar mensalmente</h2>
+                <button id="consultar">Consultar</button>
 
-            <h1 id="valortotal">R$0,00</h1>
+                <h2 id="valormensal">Valor a pagar mensalmente</h2>
 
-            <p class="txt_mainplanos">Como funciona o nosso sistema de cobrança?</p>
-            
-            <ul>
-                <li><strong>Até 100 funcionários</strong>: 2% de desconto a cada 10 funcionários, desconto máximo de 12%/mês</li>
-                <li><strong>Até 1000 funcionários</strong>: 4% de desconto a cada 100 funcionários, desconto máximo de 20%/mês</li>
-                <li><strong>1000+ funcionários</strong>: 5% de desconto a cada 1000 funcionários, desconto máximo de 25%/mês</li>
-            </ul>
+                <h1 id="valortotal">R$0,00</h1>
+
+                <div id="header">
+
+                    <p id="como_funciona">Como funciona o nosso sistema de cobrança?</p>
+
+                    <ul>
+                        <li><strong>Até 100 funcionários</strong>: 2% de desconto a cada 10 funcionários, desconto
+                            máximo de
+                            12%/mês</li>
+                        <li><strong>Até 1000 funcionários</strong>: 4% de desconto a cada 100 funcionários, desconto
+                            máximo
+                            de 20%/mês</li>
+                        <li><strong>1000+ funcionários</strong>: 5% de desconto a cada 1000 funcionários, desconto
+                            máximo de
+                            25%/mês</li>
+                    </ul>
+                </div>
             </div>
 
             <div id="mainplanos_esquerda">
@@ -53,22 +63,22 @@
 
 
         <script>
-                      function alternarOpcao(opcaoSelecionada) {
-             
+            function alternarOpcao(opcaoSelecionada) {
+
                 document.getElementById("mensal").classList.remove("ativa");
                 document.getElementById("anual").classList.remove("ativa");
 
-                
+
                 document.getElementById(opcaoSelecionada).classList.add("ativa");
-                    
-            
+
+
                 const botaoToggle = document.getElementById("botaoToggle");
-             if (opcaoSelecionada === "anual") {
-               botaoToggle.classList.add("anual-ativa");
+                if (opcaoSelecionada === "anual") {
+                    botaoToggle.classList.add("anual-ativa");
                 } else {
-               botaoToggle.classList.remove("anual-ativa");
+                    botaoToggle.classList.remove("anual-ativa");
                 }
-                    }
+            }
 
         </script>
 
