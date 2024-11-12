@@ -28,61 +28,91 @@
 
                 <p class="txt_mainplanos">Insira a quantidade de funcionários da sua empresa.</p>
 
-                <input type="number" placeholder="Insira a quantidade de funcionários aqui..."
-                    id="formulario_mainplanos"></input>
+                <input type="number" placeholder="Insira a quantidade de funcionários aqui..." id="formulario_mainplanos">
 
-                <button id="consultar">Consultar</button>
+                <button id="consultar" onclick="calcularValor()">Consultar</button>
 
                 <h2 id="valormensal">Valor a pagar mensalmente</h2>
 
                 <h1 id="valortotal">R$0,00</h1>
 
                 <div id="header">
-
                     <p id="como_funciona">Como funciona o nosso sistema de cobrança?</p>
-
                     <ul>
-                        <li><strong>Até 100 funcionários</strong>: 2% de desconto a cada 10 funcionários, desconto
-                            máximo de
-                            12%/mês</li>
-                        <li><strong>Até 1000 funcionários</strong>: 4% de desconto a cada 100 funcionários, desconto
-                            máximo
-                            de 20%/mês</li>
-                        <li><strong>1000+ funcionários</strong>: 5% de desconto a cada 1000 funcionários, desconto
-                            máximo de
-                            25%/mês</li>
+                        <li><strong>Até 100 funcionários</strong>: 2% de desconto a cada 10 funcionários, desconto máximo de 12%/mês</li>
+                        <li><strong>Até 1000 funcionários</strong>: 4% de desconto a cada 100 funcionários, desconto máximo de 20%/mês</li>
+                        <li><strong>1000+ funcionários</strong>: 5% de desconto a cada 1000 funcionários, desconto máximo de 25%/mês</li>
                     </ul>
                 </div>
             </div>
 
             <div id="mainplanos_esquerda">
-                <img src="Rectangle 49.png" alt="" id="img_main">
+                <img src="Rectangle 49 (1).png" alt="" id="img_main">
             </div>
         </div>
 
-
-
+        
         <script>
-            function alternarOpcao(opcaoSelecionada) {
+            tipoPlano = "mensal";
 
-                document.getElementById("mensal").classList.remove("ativa");
-                document.getElementById("anual").classList.remove("ativa");
+    function alternarOpcao(opcaoSelecionada) {
+        const mensal = document.getElementById("mensal");
+           const anual = document.getElementById("anual");
+        const botaoToggle = document.getElementById("botaoToggle");
+
+    
+        mensal.classList.remove("ativa");
+        anual.classList.remove("ativa");
+
+    
+        document.getElementById(opcaoSelecionada).classList.add("ativa");
+
+    
+        if (opcaoSelecionada === "anual") {
+           botaoToggle.classList.add("anual-ativa");
+        } else {
+          botaoToggle.classList.remove("anual-ativa");
+        }
+
+    
+         tipoPlano = opcaoSelecionada;
+}
+
+    function calcularValor() {
+        const quantidade_funcionarios = parseInt(document.getElementById("formulario_mainplanos").value);
+        if (isNaN(quantidade_funcionarios) || quantidade_funcionarios <= 0) {
+         alert("Insira uma quantidade válida de funcionários.");
+            return;
+     }
+
+        const valorBase = 18.75;
+         valorTotal = quantidade_funcionarios * valorBase;
+
+    
+        desconto = 0;
+        if (quantidade_funcionarios <= 100) {
+         desconto = Math.min(12, Math.floor(quantidade_funcionarios / 10) * 2);
+        } 
+        else if (quantidade_funcionarios <= 1000) {
+            desconto = Math.min(20, Math.floor(quantidade_funcionarios / 100) * 4);
+        } 
+        else {
+            desconto = Math.min(25, Math.floor(quantidade_funcionarios / 1000) * 5);
+        }
+
+   
+    valorTotal = valorTotal * (1 - desconto / 100);
+
+   
+    if (tipoPlano === "anual") {
+        valorTotal *= 12;
+    }
+
+    document.getElementById("valortotal").innerText = `R$${valorTotal.toFixed(2)}`;
+}
 
 
-                document.getElementById(opcaoSelecionada).classList.add("ativa");
-
-
-                const botaoToggle = document.getElementById("botaoToggle");
-                if (opcaoSelecionada === "anual") {
-                    botaoToggle.classList.add("anual-ativa");
-                } else {
-                    botaoToggle.classList.remove("anual-ativa");
-                }
-            }
-
-        </script>
-
-
+    </script>
     </section>
 </body>
 
