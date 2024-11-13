@@ -29,6 +29,7 @@
 }
 
 #subtitulotxt {
+    margin-top: 5vh;
     font-size: 0.8rem;
 }
 
@@ -50,12 +51,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5vh;
 }
 
 .txt_mainplanos{
+    margin-top: 3vh;
     font-size: smaller;
     font-style: italic;
-    margin-right: 8vw;
+    margin-right: 17vw;
+    margin-bottom: 1vh;
+}
+
+#faca_plano{    
+    font-size: 3rem;
 }
 
 #formulario_mainplanos{
@@ -76,30 +84,34 @@
     color: #032859;
     font-weight: 500;
     margin-top: 15px;
-    width: 8vw;
+    width: 10vw;
+    padding: 8px;
+    cursor: pointer;
 }
 
 #valormensal{
+    margin-top: 2vh;
     font-weight: 300;
     font-size: large;
 }
 
 #valortotal{
+    margin-top: 10vh;
     font-size: 2.5rem;
     font-weight: 200;
     margin-top: 0;
 }
 
 #header{
-    font-weight: 200;
-    font-size: 0.6rem;
-    margin-top: -20px;
-    margin-right: 5vw;
+    margin-top: 10vh;
+    margin-right: 4vw;
+    font-weight: 300;
+    font-size: 0.8rem;
 }
 
 #como_funciona{
-    margin-left: 2vw;
-    font-weight: 400;
+    font-weight: 700;
+    margin-bottom: 1vh;
 }
 
 #mainplanos_esquerda {
@@ -115,6 +127,7 @@
 
 
 .botao-toggle {
+    margin-top: 3.5vh;
     position: relative;
     display: flex;
     width: 200px;
@@ -134,6 +147,7 @@
     transition: color 0.3s;
     position: relative;
     z-index: 1; 
+    user-select: none;
 }
 
 .indicador-toggle {
@@ -158,8 +172,6 @@
 }
 
 
-
-
   @media (max-height: 885px) {
     .mainplanos {
         transform: scale(0.7); 
@@ -182,50 +194,59 @@
   @media (max-height: 740px) {
     .mainplanos {
         transform: scale(0.6); 
-        margin-top: -40px;
-    }
-  }
-
-  @media (max-height: 570px) {
-    .mainplanos {
         margin-top: -60px;
     }
   }
-
-  @media (max-width: 2000px) {
-    #header {
-        font-size: 1rem; 
+  @media (max-height: 650px) {
+    .mainplanos {
+        margin-top: -45px;
+        transform: scale(0.7); 
+        gap: 20px;
+    }
+    #faca_plano{    
+        font-size: 2.5rem;
     }
 
-    #como_funciona{
-        margin-left: 3vw;
+    #header{
+        padding-top: 20px;
     }
 
-    .txt_mainplanos{
-        margin-left: 1vw;
-        font-size: large;
+    ul{
+        margin-left: 37px;
     }
 
-    .botao-toggle {
-        width: 280px; 
-        height: 50px;
+    .planostxt{
+        margin-top: 5vh;
     }
 
-    .opcao-toggle {
-        font-size: 1rem; 
-        padding: 10px 0;
+    #titulotxt{
+        margin-bottom: 10vh;
     }
 
-    .indicador-toggle {
-        width: 50%; 
+    #subtitulotxt{
+        margin-top: -5vh;
     }
   }
 
+  @media (max-width: 1650px){
+    #header{
+      margin-left: 2vw;
+    }
+
+    .txt_mainplanos{
+      margin-left: 1vw;
+    }
+    
+  }
   
   @media (max-width: 1200px) {
 
     #body_planos {
         height: auto; 
+    }
+
+    #subtitulotxt {
+        margin-bottom: 2vh;
     }
 
     .main_planos {
@@ -328,4 +349,3 @@
         font-size: 0.8rem; 
     }
 }
-
